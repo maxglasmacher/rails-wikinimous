@@ -1,0 +1,16 @@
+<h1>Here are your articles:</h1>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+      <%= article.content %>
+      <i class="fas fa-eye"><%= link_to "View details", article_path(article) %></i>
+      <i class="fas fa-edit"><%= link_to "Edit article", edit_article_path(article) %></i>
+      <i class="fas fa-trash-alt"><%= link_to "Delete", article_path(article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></i>
+    </li>
+  <% end %>
+</ul>
+ <i class="fas fa-plus-circle"><%= link_to "Create article", new_article_path %></i>
+
